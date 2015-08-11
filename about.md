@@ -4,8 +4,29 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Taskcluster
+===========
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+[Taskcluster][taskcluster] is an open source CI solution that differs from other CI solutions in the following ways:
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+* Task can be run on arbitrary platforms, against arbitrary system images
+* Tasks can be composed into task graphs to create arbitrary dependency topologies
+* Task graphs can be generated and extended dynamically, even as part of a task
+* Workers can be deployed anywhere, even on a toaster
+
+It also provides the features you would expect from any world-class CI solution:
+
+* Exhaustive API metadata, serving client libraries and documentation
+* Authorization and Security via Hawk, HMAC signatures, authorization scopes, SSL transport
+* Centralised logging via papertrail
+* Metrics collection via influxdb
+* Linux containerisation via docker worker, arbitrary platform support via generic worker
+
+
+Me
+==
+
+I'm a Release Engineer working at Mozilla. Most recently I've joined the [Taskcluster][taskcluster] team, where I am currently working on the [generic worker][generic-worker].
+
+[taskcluster]: http://docs.taskcluster.net
+[generic-worker]: http://docs.taskcluster.net/workers/generic-worker

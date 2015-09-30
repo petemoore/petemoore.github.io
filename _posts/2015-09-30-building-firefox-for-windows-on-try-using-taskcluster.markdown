@@ -231,6 +231,8 @@ rm "C:\builds\config.zip"
 
 # initial clone of mozilla-central
 $p = Start-Process "C:\mozilla-build\python\python.exe" -ArgumentList "C:\mozilla-build\python\Scripts\hg clone -u null https://hg.mozilla.org/mozilla-central C:\gecko" -wait -NoNewWindow -PassThru -RedirectStandardOutput "C:\hg_initial_clone.log" -RedirectStandardError "C:\hg_initial_clone.err"
+
+</powershell>
 {% endhighlight %}
 
 Hopefully this Powershell script is quite self-explanatory. It installs the required build tool chains for building Firefox Desktop, and then installs the parts it needs for running the Generic Worker on this instance. It sets up some additional config that is needed by the build process, and then takes an initial clone of mozilla-central, as an optimisation, so that future jobs only need to pull changes since the image was created.

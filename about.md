@@ -4,10 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Taskcluster
+TaskCluster
 ===========
 
-[Taskcluster][taskcluster] is an open source CI solution that differs from other CI solutions in the following ways:
+[TaskCluster][taskcluster] is an open source CI solution that differs from other CI solutions in the following ways:
 
 * Task can be run on arbitrary platforms, against arbitrary system images
 * Tasks can be composed into task graphs to create arbitrary dependency topologies
@@ -26,7 +26,7 @@ It also provides the features you would expect from any world-class CI solution:
 Me
 ==
 
-I'm a Release Engineer working at Mozilla. Most recently I've joined the [Taskcluster][taskcluster] team, where I am currently working on the [generic worker][generic-worker].
+I'm a Release Engineer working at Mozilla. Most recently I've joined the [TaskCluster][taskcluster] team, where I am currently working on the [generic worker][generic-worker].
 
 [taskcluster]: http://docs.taskcluster.net
 [generic-worker]: http://docs.taskcluster.net/workers/generic-worker

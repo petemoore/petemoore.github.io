@@ -458,6 +458,7 @@ task:
 This file above has defined those parameters, and provided some more task specific config too, which overlays the base config we saw before.
 
 Getting the new tasks added to Try pushes
+-----------------------------------------
 
 This involved adding `win32` and `win64` as build platforms in `testing/taskcluster/tasks/branches/base_job_flags.yml` (previsouly taskcluster was not running any tasks for these platforms):
 

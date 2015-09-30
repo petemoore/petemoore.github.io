@@ -457,6 +457,84 @@ task:
 
 This file above has defined those parameters, and provided some more task specific config too, which overlays the base config we saw before.
 
+But wait a minute... how do these tasks know to use the `win2012r2` worker type we created? The answer to that is that [testing/taskcluster/tasks/builds/firefox_windows_base.yml](https://hg.mozilla.org/try/file/fc4b30cc56fb/testing/taskcluster/tasks/builds/firefox_windows_base.yml) inherits from [testing/taskcluster/tasks/windows_build.yml](https://hg.mozilla.org/try/file/fc4b30cc56fb/testing/taskcluster/tasks/windows_build.yml):
+
+{% highlight yaml %}
+# This is the base windows task which contains the common values all windows builds must
+# provide.
+---
+$inherits:
+  from: 'tasks/build.yml'
+
+task:
+  workerType: win2012r2
+{% endhighlight %}
+
+Incidentally, this then inherits in turn from the root yaml file for __all__ gecko builds (across _all_ gecko platforms):
+
+{% highlight yaml %}
+# This is the "base" task which contains the common values all builds must
+# provide.
+---
+taskId: {{ "{{build_slugid"}}}}
+
+task:
+  created: '{{ "{{now"}}}}'
+  deadline: '{{ "{{#from_now"}}}}24 hours{{ "{{/from_now"}}}}'
+  metadata:
+    source: http://todo.com/soon
+    owner: mozilla-taskcluster-maintenance@mozilla.com
+
+  tags:
+    createdForUser: {{ "{{owner"}}}}
+
+  provisionerId: aws-provisioner-v1
+  schedulerId: task-graph-scheduler
+
+  routes:
+    - 'index.gecko.v1.{{ "{{project"}}}}.revision.linux.{{ "{{head_rev"}}}}.{{ "{{build_name"}}}}.{{ "{{build_type"}}}}'
+    - 'index.gecko.v1.{{ "{{project"}}}}.latest.linux.{{ "{{build_name"}}}}.{{ "{{build_type"}}}}'
+  scopes:
+    - 'queue:define-task:aws-provisioner-v1/build-c4-2xlarge'
+    - 'queue:create-task:aws-provisioner-v1/build-c4-2xlarge'
+
+
+  payload:
+
+    # Two hours is long but covers edge cases (and matches bb based infra)
+    maxRunTime: 7200
+
+    env:
+      # Common environment variables for checking out gecko
+      GECKO_BASE_REPOSITORY: '{{ "{{base_repository"}}}}'
+      GECKO_HEAD_REPOSITORY: '{{ "{{head_repository"}}}}'
+      GECKO_HEAD_REV: '{{ "{{head_rev"}}}}'
+      GECKO_HEAD_REF: '{{ "{{head_ref"}}}}'
+      TOOLTOOL_REPO: 'https://git.mozilla.org/build/tooltool.git'
+      TOOLTOOL_REV: 'master'
+
+  extra:
+    build_product: '{{ "{{build_product"}}}}'
+    index:
+      rank: {{ "{{pushlog_id"}}}}
+    treeherder:
+      groupSymbol: tc
+      groupName: Submitted by taskcluster
+      symbol: B
+{% endhighlight %}
+
+So the complete inheritence chain looks like this:
+
+```
+tasks/build.yml
+  tasks/windows_build.yml
+    tasks/builds/firefox_windows_base.yml
+      tasks/builds/firefox_win32_opt.yml
+      tasks/builds/firefox_win64_debug.yml
+      tasks/builds/firefox_win32_opt.yml
+      tasks/builds/firefox_win64_debug.yml
+```
+
 Getting the new tasks added to Try pushes
 -----------------------------------------
 
@@ -496,7 +574,7 @@ flags:
 
 And then associating these new task definitions we just created, to these new build platforms. This is done in `testing/taskcluster/tasks/branches/try/job_flags.yml`:
 
-{%highlight yaml %}
+{% highlight yaml %}
 ---
 # For complete sample of all build and test jobs,
 # see <gecko>/testing/taskcluster/tasks/job_flags.yml

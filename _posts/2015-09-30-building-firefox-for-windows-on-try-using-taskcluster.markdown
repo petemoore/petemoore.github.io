@@ -20,7 +20,7 @@ Here are the try builds we have created. They were built from the official in-tr
 Set up your own Windows™ Try tasks
 ----------------------------------
 
-We are porting over all of Mozilla's CI tasks to [TaskCluster](https://docs.taskcluster.net), including Windows™ builds and tests.
+We are porting over all of Mozilla's CI tasks to [TaskCluster](http://docs.taskcluster.net), including Windows™ builds and tests.
 
 Currently Windows™ and OS X tasks still run on our legacy Buildbot infrastructure. This is about to change.
 
@@ -621,4 +621,4 @@ Summary
 
 The above hopefully has given you a taste for what you can do yourself in TaskCluster, and specifically in Gecko, regarding setting up new jobs. By following this guide, you too should be able to schedule Windows jobs in Taskcluster, including try jobs for [Gecko](https://developer.mozilla.org/en-US/docs/Mozilla/Gecko) projects.
 
-For more information about TaskCluster, see [docs.taskcluster.net](https://docs.taskcluster.net).
+For more information about TaskCluster, see [docs.taskcluster.net](http://docs.taskcluster.net).

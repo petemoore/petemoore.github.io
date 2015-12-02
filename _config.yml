@@ -7,7 +7,8 @@ description: > # this means to ignore newlines until "baseurl:"
   to popular vcs providers such as GitHub.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://petemoore.github.io" # the base hostname & protocol for your site
-github_username:  petemoore
+github_username: petemoore
+disqus_username: worc0260
 
 # Build settings
 markdown: kramdown

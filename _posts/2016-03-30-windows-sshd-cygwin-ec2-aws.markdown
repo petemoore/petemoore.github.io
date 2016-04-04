@@ -269,7 +269,10 @@ You should get some output similar to this:
 
 {% highlight bash %}
 Please be patient, this can take a long time.
-..............
-SSH onto your new instance (i-0ad7ab3fa5665476a) with:
-    ssh Administrator@54.213.174.213 (Password: "R!mxZGS43qQ")
+................
+SSH onto your new instance (i-0fe79e45ffb2c34db) with:
+    ssh -i '1459795270.pem' Administrator@54.200.218.155
+
+Note, the Administrator password is "PItDM)Ph*U", but it
+should not be needed when connecting with the ssh key.
 {% endhighlight %}

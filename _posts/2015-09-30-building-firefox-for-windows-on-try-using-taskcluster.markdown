@@ -14,7 +14,7 @@ Here are the try builds we have created. They were built from the official in-tr
 
 * [win32 opt](https://queue.taskcluster.net/v1/task/ARNCa6tfSDuXMxkzxBjUTQ/runs/0/artifacts/public/build/firefox-43.0a1.en-US.win32.zip)
 * [win32 debug](https://queue.taskcluster.net/v1/task/ZbyHXDfCTeG40Khq8sDI9w/runs/0/artifacts/public/build/firefox-43.0a1.en-US.win32.zip)
-* [win64 opt](ihttps://queue.taskcluster.net/v1/task/YlS2Tx5cSTioK144E1TnOA/runs/0/artifacts/public/build/firefox-43.0a1.en-US.win64.zip)
+* [win64 opt](https://queue.taskcluster.net/v1/task/YlS2Tx5cSTioK144E1TnOA/runs/0/artifacts/public/build/firefox-43.0a1.en-US.win64.zip)
 * [win64 debug](https://queue.taskcluster.net/v1/task/Ar_6p6QCQ02_xYIaMc_Dlw/runs/0/artifacts/public/build/firefox-43.0a1.en-US.win64.zip)
 
 Set up your own Windows™ Try tasks

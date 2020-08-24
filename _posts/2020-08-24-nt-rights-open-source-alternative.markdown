@@ -5,7 +5,7 @@ date:   2020-08-24 14:32:13
 categories: general
 ---
 
-If you are wish to modify LSA policy programmatically on Windows, the
+If you wish to modify LSA policy programmatically on Windows, the
 `ntrights.exe` utility from the Windows 2000 Server Resource Kit may help you.
 But if you need to ship a product that uses it, you may wish to consider an
 open source tool to avoid any licensing issues.

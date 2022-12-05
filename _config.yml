@@ -1,5 +1,5 @@
 # Site settings
-title: TaskCluster In Action
+title: Taskcluster In Action
 email: pmoore@mozilla.com
 description: > # this means to ignore newlines until "baseurl:"
   Multi-platform in-tree defined CI, against arbitrary systems or system

@@ -168,6 +168,9 @@ Create a file `userdata` to store the User Data:
 $ cat > userdata << 'EOF'
 <powershell>
 
+# use TLS 1.2 (see https://bugzilla.mozilla.org/show_bug.cgi?id=1443595#c20)
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # needed for making http requests
 $client = New-Object system.net.WebClient
 

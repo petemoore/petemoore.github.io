@@ -204,8 +204,8 @@ Start-Process "C:\cygwin\bin\bash.exe" -ArgumentList "--login
 
 # start sshd
 Start-Process "net" -ArgumentList "start cygsshd" -wait -NoNewWindow -PassThru `
--RedirectStandardOutput "C:\net_start_sshd.log" `
--RedirectStandardError "C:\net_start_sshd.err"
+-RedirectStandardOutput "C:\net_start_cygsshd.log" `
+-RedirectStandardError "C:\net_start_cygsshd.err"
 
 # download bash setup script
 $client.DownloadFile(

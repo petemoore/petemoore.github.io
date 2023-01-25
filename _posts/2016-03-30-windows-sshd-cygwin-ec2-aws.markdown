@@ -203,7 +203,7 @@ Start-Process "C:\cygwin\bin\bash.exe" -ArgumentList "--login
 "C:\cygrunsrv.log" -RedirectStandardError "C:\cygrunsrv.err"
 
 # start sshd
-Start-Process "net" -ArgumentList "start sshd" -wait -NoNewWindow -PassThru `
+Start-Process "net" -ArgumentList "start cygsshd" -wait -NoNewWindow -PassThru `
 -RedirectStandardOutput "C:\net_start_sshd.log" `
 -RedirectStandardError "C:\net_start_sshd.err"
 

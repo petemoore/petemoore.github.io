@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "When the agent helps choose its own process"
-date:   2026-06-10 23:30:00
+date:   2026-06-10 20:00:00
 categories: sam-coupe ai
 ---
 
